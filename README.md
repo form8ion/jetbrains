@@ -15,6 +15,8 @@ form8ion plugin for jetbrains IDEs
 * [Usage](#usage)
   * [Installation](#installation)
   * [Example](#example)
+    * [Import](#import)
+    * [Execute](#execute)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -40,7 +42,7 @@ $ npm install @form8ion/jetbrains
 #### Import
 
 ```javascript
-import {scaffold} from './lib/index.js';
+import {scaffold, test, lift} from '@form8ion/jetbrains';
 ```
 
 #### Execute
@@ -48,6 +50,12 @@ import {scaffold} from './lib/index.js';
 ```javascript
 (async () => {
   await scaffold({projectRoot: process.cwd()});
+})();
+
+(async () => {
+  if (await test({projectRoot: process.cwd()})) {
+    await lift({projectRoot: process.cwd()});
+  }
 })();
 ```
 

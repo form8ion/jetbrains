@@ -21,3 +21,16 @@ When('the project is scaffolded', async function () {
 
   await scaffold({projectRoot: process.cwd()});
 });
+
+When('the project is lifted', async function () {
+  // eslint-disable-next-line import/no-extraneous-dependencies,import/no-unresolved
+  const {test, lift} = await import('@form8ion/jetbrains');
+
+  stubbedFs({
+    node_modules: stubbedNodeModules
+  });
+
+  if (await test({projectRoot: process.cwd()})) {
+    await lift({projectRoot: process.cwd()});
+  }
+});
