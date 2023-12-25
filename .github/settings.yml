@@ -1,0 +1,6 @@
+_extends: .github
+repository:
+  name: jetbrains
+  description: form8ion plugin for jetbrains IDEs
+  homepage: https://npm.im/@form8ion/jetbrains
+  private: false
