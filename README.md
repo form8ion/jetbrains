@@ -28,6 +28,7 @@ form8ion plugin for jetbrains IDEs
 [![MIT license][license-badge]][license-link]
 [![npm][npm-badge]][npm-link]
 [![Try @form8ion/jetbrains on RunKit][runkit-badge]][runkit-link]
+![node][node-badge]
 
 <!--consumer-badges end -->
 
@@ -125,3 +126,5 @@ $ npm test
 [runkit-link]: https://npm.runkit.com/@form8ion/jetbrains
 
 [runkit-badge]: https://badge.runkitcdn.com/@form8ion/jetbrains.svg
+
+[node-badge]: https://img.shields.io/node/v/@form8ion/jetbrains?logo=node.js
