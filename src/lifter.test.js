@@ -18,6 +18,6 @@ describe('lifter', () => {
     expect(await lift({projectRoot}))
       .toEqual({vcsIgnore: {directories: ['.idea', '!.idea/', '.idea/*', '!.idea/runConfigurations/']}});
 
-    expect(fs.mkdir).toHaveBeenCalledWith(`${projectRoot}/.idea/runConfigurations`);
+    expect(fs.mkdir).toHaveBeenCalledWith(`${projectRoot}/.idea/runConfigurations`, {recursive: true});
   });
 });

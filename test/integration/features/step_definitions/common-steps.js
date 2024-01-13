@@ -1,7 +1,7 @@
 import {dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
-import {After, Before, When} from '@cucumber/cucumber';
+import {After, Before, When, Then} from '@cucumber/cucumber';
 import stubbedFs from 'mock-fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));          // eslint-disable-line no-underscore-dangle
@@ -32,4 +32,8 @@ When('the project is lifted', async function () {
   if (await test({projectRoot: process.cwd()})) {
     this.result = await lift({projectRoot: this.projectRoot});
   }
+});
+
+Then('no error is thrown', async function () {
+  return undefined;
 });

@@ -9,3 +9,7 @@ Given('a JetBrains IDE is not being used', async function () {
 Given('a JetBrains IDE is being used', async function () {
   await fs.mkdir(`${this.projectRoot}/.idea`);
 });
+
+Given('the runConfigurations directory exists', async function () {
+  await fs.mkdir(`${this.projectRoot}/.idea/runConfigurations`);
+});
