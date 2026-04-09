@@ -1,9 +1,11 @@
-import {promises as fs} from 'node:fs';
+import {directoryExists} from '@form8ion/core';
 
 export default async function lift({projectRoot}) {
-  await fs.mkdir(`${projectRoot}/.idea/runConfigurations`, {recursive: true});
+  if (await directoryExists(`${projectRoot}/.idea/runConfigurations`)) {
+    return {
+      vcsIgnore: {directories: ['.idea', '!.idea/', '.idea/*', '!.idea/runConfigurations/']}
+    };
+  }
 
-  return {
-    vcsIgnore: {directories: ['.idea', '!.idea/', '.idea/*', '!.idea/runConfigurations/']}
-  };
+  return {};
 }

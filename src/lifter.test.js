@@ -1,23 +1,26 @@
-import {promises as fs} from 'node:fs';
+import {directoryExists} from '@form8ion/core';
 
-import {afterEach, describe, expect, it, vi} from 'vitest';
+import {describe, expect, it, vi} from 'vitest';
 import any from '@travi/any';
+import {when} from 'vitest-when';
 
 import lift from './lifter.js';
 
-vi.mock('node:fs');
+vi.mock('@form8ion/core');
 
 describe('lifter', () => {
   const projectRoot = any.string();
 
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
+  it('should prevent run configurations from being ignored when the directory already exists', async () => {
+    when(directoryExists).calledWith(`${projectRoot}/.idea/runConfigurations`).thenResolve(true);
 
-  it('should prevent run configurations from being ignored', async () => {
     expect(await lift({projectRoot}))
       .toEqual({vcsIgnore: {directories: ['.idea', '!.idea/', '.idea/*', '!.idea/runConfigurations/']}});
+  });
 
-    expect(fs.mkdir).toHaveBeenCalledWith(`${projectRoot}/.idea/runConfigurations`, {recursive: true});
+  it('should not define vcsIgnore when the runConfigurations directory does not exist', async () => {
+    when(directoryExists).calledWith(`${projectRoot}/.idea/runConfigurations`).thenResolve(false);
+
+    expect(await lift({projectRoot})).toEqual({});
   });
 });
