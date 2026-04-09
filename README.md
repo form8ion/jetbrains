@@ -111,13 +111,13 @@ $ npm test
 
 [coverage-link]: https://codecov.io/github/form8ion/jetbrains
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/form8ion/jetbrains?logo=codecov
+[coverage-badge]: https://img.shields.io/codecov/c/github/form8ion/jetbrains/master?logo=codecov
 
 [slsa-badge]: https://slsa.dev/images/gh-badge-level2.svg
 
 [license-link]: LICENSE
 
-[license-badge]: https://img.shields.io/github/license/form8ion/jetbrains.svg
+[license-badge]: https://img.shields.io/github/license/form8ion/jetbrains.svg?logo=opensourceinitiative
 
 [npm-link]: https://www.npmjs.com/package/@form8ion/jetbrains
 
